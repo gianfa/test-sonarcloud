@@ -5,6 +5,14 @@ on:
       - '*'
 
 jobs:
+  debug_init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: pwd
+        run: pwd
+      - name: tree
+        run: echo $(tree -L2 .)
+
   code-analysis:
     runs-on: ubuntu-latest
     container:
