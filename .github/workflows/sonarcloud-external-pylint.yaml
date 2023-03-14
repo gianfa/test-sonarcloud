@@ -10,8 +10,10 @@ jobs:
     steps:
       - name: pwd
         run: pwd
+      - name: ls
+        run: echo $(ls .)
       - name: tree
-        run: echo $(tree -L2 .)
+        run: echo $(tree .)
 
   code-analysis:
     runs-on: ubuntu-latest
