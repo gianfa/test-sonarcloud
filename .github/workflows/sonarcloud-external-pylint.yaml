@@ -30,7 +30,6 @@ jobs:
 
   code-analysis:
     runs-on: ubuntu-latest
-    environment: test-env1
     container:
       image: python:3.8-slim-buster
       # volumes:
