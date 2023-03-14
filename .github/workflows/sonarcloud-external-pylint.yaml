@@ -1,3 +1,6 @@
+# ref:
+# - https://docs.sonarcloud.io/advanced-setup/ci-based-analysis/github-actions-for-sonarcloud/
+# - https://sonarcloud.io/project/configuration?id=gianfa_test-sonarcloud&analysisMode=GitHubActions
 #
 # 1. Sonar: connect github repo
 # 2. Sonar: Add a new project: gh repo
