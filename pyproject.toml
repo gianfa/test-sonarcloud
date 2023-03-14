@@ -1,0 +1,19 @@
+# Generated with mp_kernel_template:v2.0.0a3
+[tool.poetry]
+name = "test-sonarcloud"
+version = "0.1.0"
+description = "test sonar cloud wflow"
+authors = ["Gianfrancesco Angelini <gian.angelini@hotmail.com>"]
+maintainers = ["Gianfrancesco Angelini <gian.angelini@hotmail.com>"]
+readme = "./README.md"
+packages = [
+    { include = "mock_package" }
+]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.10"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
