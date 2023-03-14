@@ -15,7 +15,7 @@ jobs:
       - name: ls
         run: echo $(ls .)
       - name: tree
-        run: echo $(tree .)
+        run: echo "$(tree .)"
 
   code-analysis:
     runs-on: ubuntu-latest
@@ -26,12 +26,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install dependencies
-        run: pip install -r pyproject.toml
-      - name: Run Pylint analysis
-        run: |
-          pylint --output-format=json --reports=y /app > pylint-report.json
+      # - name: Install dependencies
+      #   run: pip install -r pyproject.toml
+      # - name: Run Pylint analysis
+      #   run: |
+      #     pylint --output-format=json --reports=y /app > pylint-report.json
       - name: SonarCloud analysis
         uses: sonarsource/sonarcloud-github-action@master
-        with:
-          args: -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=. -Dsonar.login=$SONAR_TOKEN -Dsonar.python.pylint.reportPaths=pylint-report.json
+        # with:
+        #   args: -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.sources=. -Dsonar.login=$SONAR_TOKEN -Dsonar.python.pylint.reportPaths=pylint-report.json
