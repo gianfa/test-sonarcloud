@@ -15,4 +15,5 @@ def greetings(who:str='there') -> str:
     greet='Hi ' + who + '!'
     print(greet)
     lambda printa: print("this is a code smell")
+    lambda printa_2: print("this is another code smell")
     return greet
