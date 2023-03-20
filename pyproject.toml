@@ -1,4 +1,3 @@
-# Generated with mp_kernel_template:v2.0.0a3
 [tool.poetry]
 name = "test-sonarcloud"
 version = "0.1.0"
@@ -12,7 +11,20 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.9,<3.10"
+pylint = "^2.17.0"
 
+
+[tool.pylint."MESSAGES CONTROL"]
+# Checkers
+# ref: https://pylint.readthedocs.io/en/latest/user_guide/configuration/all-options.html#main-checker
+
+
+# ignore pylint errors for particular variable names
+# ref: https://pylint.readthedocs.io/en/latest/user_guide/configuration/all-options.html#good-names
+good-names = [ 
+    "x",
+    "y",
+]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

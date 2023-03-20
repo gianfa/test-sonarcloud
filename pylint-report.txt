@@ -1,0 +1,22 @@
+************* Module mock_package
+mock_package/__init__.py:9: [C0304(missing-final-newline), ] Final newline missing
+************* Module mock_package.module1
+mock_package/module1.py:17: [C0304(missing-final-newline), ] Final newline missing
+mock_package/module1.py:1: [C0114(missing-module-docstring), ] Missing module docstring
+************* Module mock_package.subpackage.module1_2
+mock_package/subpackage/module1_2.py:12: [C0304(missing-final-newline), ] Final newline missing
+mock_package/subpackage/module1_2.py:9: [C0116(missing-function-docstring), sentence1_2] Missing function or method docstring
+************* Module mock_package.subpackage.__init__
+mock_package/subpackage/__init__.py:12: [C0304(missing-final-newline), ] Final newline missing
+************* Module mock_package.subpackage.module1_1
+mock_package/subpackage/module1_1.py:12: [C0304(missing-final-newline), ] Final newline missing
+mock_package/subpackage/module1_1.py:9: [C0116(missing-function-docstring), sentence1_1] Missing function or method docstring
+************* Module mock_package.subpackage.code11
+mock_package/subpackage/code11.py:24: [C0304(missing-final-newline), ] Final newline missing
+mock_package/subpackage/code11.py:1: [C0114(missing-module-docstring), ] Missing module docstring
+mock_package/subpackage/code11.py:1: [C0410(multiple-imports), ] Multiple imports on one line (os, sys)
+mock_package/subpackage/code11.py:23: [C0116(missing-function-docstring), whoami] Missing function or method docstring
+
+------------------------------------------------------------------
+Your code has been rated at 4.55/10 (previous run: 4.55/10, +0.00)
+

@@ -1,13 +1,13 @@
 # ref:
 # - https://docs.sonarcloud.io/advanced-setup/ci-based-analysis/github-actions-for-sonarcloud/
 # - https://sonarcloud.io/project/configuration?id=gianfa_test-sonarcloud&analysisMode=GitHubActions
+# - [SonarCluoud Pylint](https://stackoverflow.com/questions/66367465/sonarqube-ignores-pylint-results)
 #
 # 1. Sonar: connect github repo
 # 2. Sonar: Add a new project: gh repo
 # 3. Sonar: Get organization key (administration) and project key (id)
 # 4. Sonar: Account > Security > Generate new token
-# 5. GH: create a new environment from Settings
-# 6. GH: add the new token, as SONAR_TOKEN, to the new environment
+# 5. GH: add the new token, as SONAR_TOKEN
 
 name: Python Code Analysis
 on:
