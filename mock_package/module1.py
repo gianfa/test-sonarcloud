@@ -19,6 +19,7 @@ def greetings(who:str='there') -> str:
     print(greet)
     lambda printa: print("this is a code smell")
     lambda printa_2: print("this is another code smell")  
+    1 + 5
     return greet
 
 def broken_function(var: Any):
