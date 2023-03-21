@@ -23,4 +23,4 @@ def greetings(who:str='there') -> str:
 
 def broken_function(var: Any):
     """ This is just broken"""
-    if 
+    if  

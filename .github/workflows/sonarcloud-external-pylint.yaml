@@ -60,6 +60,8 @@ jobs:
             -X GET "https://sonarcloud.io/api/qualitygates/project_status?projectKey=gianfa_test-sonarcloud" \
             -o sonar_status.json
 
+      - name: Check SonarCloud Quality Gate
+        run: | 
           status=$(jq -r '.projectStatus.status' sonar_status.json)
           if [[ "$status" != "OK" ]]; then
             echo "ERR: SonarCloud Quality Gate failed. Status: $status"
