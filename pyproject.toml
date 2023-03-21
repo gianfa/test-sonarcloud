@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "test-sonarcloud"
-version = "0.1.0"
+version = "0.1.1"
 description = "test sonar cloud wflow"
 authors = ["Gianfrancesco Angelini <gian.angelini@hotmail.com>"]
 maintainers = ["Gianfrancesco Angelini <gian.angelini@hotmail.com>"]
