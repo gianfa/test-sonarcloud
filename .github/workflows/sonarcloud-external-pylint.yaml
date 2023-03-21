@@ -47,4 +47,17 @@ jobs:
         uses: sonarsource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.GLOBAL__TEST__SONAR_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # SONAR_TOKEN: ${{ secrets.GLOBAL__TEST__SONAR_TOKEN }}
+  
+      - name: Check SonarCloud Quality Gate
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          curl -s -u "${{ secrets.SONAR_TOKEN }}:" -X GET "https://sonarcloud.io/api/qualitygates/project_status?projectKey=gianfa_test-sonarcloud" -o sonar_status.json
+          status=$(jq -r '.projectStatus.status' sonar_status.json)
+          if [[ "$status" != "OK" ]]; then
+            echo "ERR: SonarCloud Quality Gate failed. Status: $status"
+            exit 1
+          fi
