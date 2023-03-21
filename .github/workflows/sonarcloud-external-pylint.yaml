@@ -55,6 +55,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
+          apk add curl
           curl -s \
             -u "${{ secrets.SONAR_TOKEN }}:" \
             -X GET "https://sonarcloud.io/api/qualitygates/project_status?projectKey=gianfa_test-sonarcloud" \
