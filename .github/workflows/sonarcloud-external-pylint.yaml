@@ -82,7 +82,7 @@ jobs:
           curl -sSL \
             -u "${{ secrets.SONAR_TOKEN }}:" \
             -X GET "${{ steps.sonarcloud-details.outputs.server_url }}/api/measures/component?component=${{ steps.sonarcloud-details.outputs.project_key }}&metricKeys=bugs,new_bugs,code_smells,new_code_smells,vulnerabilities,new_vulnerabilities,duplicated_lines_density,coverage"
-            -o sonarcloud-metrics.json
+            # -o sonarcloud-metrics.json
 
       - name: Generate Detailed Report
         run: |
