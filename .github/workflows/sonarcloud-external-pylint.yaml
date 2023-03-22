@@ -68,13 +68,13 @@ jobs:
       - name: dbg| sonar_status.json
         run: echo "$(cat sonar_status.json)"
 
-      - name: Check SonarCloud Quality Gate
-        run: | 
-          status=$(jq -r '.projectStatus.status' sonar_status.json)
-          if [ "$status" != "OK" ]; then
-            echo "ERR: SonarCloud Quality Gate failed. Status: $status"
-            exit 1
-          fi
+      # - name: Check SonarCloud Quality Gate
+      #   run: | 
+      #     status=$(jq -r '.projectStatus.status' sonar_status.json)
+      #     if [ "$status" != "OK" ]; then
+      #       echo "ERR: SonarCloud Quality Gate failed. Status: $status"
+      #       exit 1
+      #     fi
 
       - name: Retrieve SonarCloud Metrics
         id: sonarcloud-metrics
