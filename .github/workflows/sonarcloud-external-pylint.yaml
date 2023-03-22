@@ -75,3 +75,21 @@ jobs:
             echo "ERR: SonarCloud Quality Gate failed. Status: $status"
             exit 1
           fi
+
+      - name: Retrieve SonarCloud Metrics
+        id: sonarcloud-metrics
+        run: |
+          curl -sSL \
+            -u "${{ secrets.SONAR_TOKEN }}:" \
+            -X GET "${{ steps.sonarcloud-details.outputs.server_url }}/api/measures/component?component=${{ steps.sonarcloud-details.outputs.project_key }}&metricKeys=bugs,new_bugs,code_smells,new_code_smells,vulnerabilities,new_vulnerabilities,duplicated_lines_density,coverage"
+            -o sonarcloud-metrics.json
+
+      - name: Generate Detailed Report
+        run: |
+          echo "SonarCloud Quality Gate Status: ${{ steps.sonarcloud-details.outputs.quality_gate_status }}" > report.txt
+          echo "Coverage: ${{ fromJSON(steps.sonarcloud-metrics.outputs.result).component.measures[0].value }}" >> report.txt
+          echo "Bugs: ${{ fromJSON(steps.sonarcloud-metrics.outputs.result).component.measures[1].value }}" >> report.txt
+          echo "New Bugs: ${{ fromJSON(steps.sonarcloud-metrics.outputs.result).component.measures[2].value }}" >> report.txt
+          echo "Code Smells: ${{ fromJSON(steps.sonarcloud-metrics.outputs.result).component.measures[3].value }}" >> report.txt
+          echo "New Code Smells: ${{ fromJSON(steps.sonarcloud-metrics.outputs.result).component.measures[4].value }}" >> report.txt
+          echo "Vulnerabilities: ${{ fromJSON(steps.sonarcloud-metrics.outputs.result).component.measures[5].
