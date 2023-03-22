@@ -18,9 +18,6 @@ on:
 jobs:
   debug_init:
     runs-on: ubuntu-latest
-    env:
-      SCProjectKey: gianfa_test-sonarcloud
-      SCOrganization: gianfa
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -37,6 +34,9 @@ jobs:
       image: python:3.8-slim-buster
       # volumes:
       #   - ./:/app
+    env:
+      SCProjectKey: gianfa_test-sonarcloud
+      SCOrganization: gianfa
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -87,7 +87,7 @@ jobs:
         run: |
           curl -sSL \
             -u "${{ secrets.SONAR_TOKEN }}:" \
-            -X GET "https://sonarcloud.io/api/measures/component?metricKeys=bugs,new_bugs,code_smells,new_code_smells,vulnerabilities,new_vulnerabilities,duplicated_lines_density,coverage"
+            -X GET "https://sonarcloud.io/api/measures/component?component=gianfa_test-sonarcloud&metricKeys=bugs,new_bugs,code_smells,new_code_smells,vulnerabilities,new_vulnerabilities,duplicated_lines_density,coverage"
 
       # - name: Generate Detailed Report
       #   run: |
