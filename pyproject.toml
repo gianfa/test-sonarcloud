@@ -12,6 +12,7 @@ packages = [
 [tool.poetry.dependencies]
 python = ">=3.9,<3.10"
 pylint = "^2.17.0"
+pandas = "^1.5.3"
 
 
 [tool.pylint."MESSAGES CONTROL"]
@@ -25,6 +26,27 @@ good-names = [
     "x",
     "y",
 ]
+
+# [tool.pylint]
+# load-plugins = "my_pandas_lint"
+
+[tool.pylint.pylintrc]
+disable = "missing-docstring, invalid-name"
+
+[tool.pylint.message-control]
+# disable all the messages by default
+enable = [
+    "C",
+    "E",
+    "F",
+    "I",
+    "R",
+    "W",
+]
+
+[tool.pylint.report]
+output-format = "colorized"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
