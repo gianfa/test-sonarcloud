@@ -26,3 +26,7 @@ def broken_function(var: Any):
     """ This is just broken"""
 
     return 3+4
+
+def other_broken_function(var):
+    """Ciao"""
+    return 5
